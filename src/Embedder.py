@@ -71,15 +71,15 @@ def extract_and_embed_with_cache(pdf_path):
     else:
         print(f"Embedding: {path.basename(cache_path)} <- {name}")
 
-        reader = open_pdf(pdf_path)
-        if reader is not None:
-            page_embeddings = []
-            for page_num, page in enumerate(reader.pages):
-                page_text = page.extract_text()
-                if page_text.strip():
-                    page_embeddings.append(model.encode(page_text, convert_to_numpy=True))
+        with open_pdf(pdf_path) as reader:
+            if reader is not None:
+                page_embeddings = []
+                for page_num, page in enumerate(reader.pages):
+                    page_text = page.extract_text()
+                    if page_text.strip():
+                        page_embeddings.append(model.encode(page_text, convert_to_numpy=True))
 
-            embedding = np.mean(page_embeddings, axis=0)
-            np.save(cache_path, embedding)
+                embedding = np.mean(page_embeddings, axis=0)
+                np.save(cache_path, embedding)
 
     return embedding
