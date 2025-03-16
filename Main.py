@@ -1,10 +1,9 @@
 import argparse
 import os
 import sys
-import numpy as np
 
-from src.Extractor import extract_text_from_pdf, find_pdfs_recursive
-from src.Embedder import embed_text
+from src.Extractor import find_pdfs_recursive
+from src.Embedder import extract_and_embed_with_cache
 from src.Clusterer import cluster
 from src.HTMLGenerator import generate_html
 
@@ -28,38 +27,38 @@ def main():
         print(f"Error: {start_dir} is not a valid directory.")
         sys.exit(1)
 
-    # 1. Gather PDFs
-    pdf_files = find_pdfs_recursive(start_dir)
-    if not pdf_files:
+    #
+    pdfs = find_pdfs_recursive(start_dir)
+    if not pdfs:
         print(f"No PDF files found under {start_dir}.")
         sys.exit(0)
 
-    # 2. Extract text
-    texts = []
-    for path in pdf_files:
-        text = extract_text_from_pdf(path)
-        texts.append((path, text))
+    #
+    paths = []
+    embeddings = []
 
-    # 3. Embeddings
-    # doc_embedding matches texts (which contains the filename)
-    doc_embeddings = []
-    for (filename, text) in texts:
-        embedding = embed_text(text)
-        doc_embeddings.append(embedding)
-    doc_embeddings = np.array(doc_embeddings)  # shape: (num_docs, embed_dim)
+    for pdf_path in pdfs:
+        try:
+            embedding = extract_and_embed_with_cache(pdf_path)
 
-    # 4. Clustering (K-means as an example)
-    clusters = cluster(doc_embeddings, 25)
+            paths.append(pdf_path)
+            embeddings.append(embedding)
 
-    # 5. Map cluster IDs to file lists
+        except Exception as e:
+            print(f"*** [Warning] Could not process '{pdf_path}'. Error: {e}")
+
+    # Clustering
+    clusters = cluster(embeddings, 25)
+
+    # Map cluster IDs to file lists
     cluster_dict = {}
     for idx, cluster_id in enumerate(clusters):
-        pdf_file = texts[idx][0]
+        pdf_file = paths[idx]
         if cluster_id not in cluster_dict:
             cluster_dict[cluster_id] = []
         cluster_dict[cluster_id].append(pdf_file)
 
-    # 6. Generate HTML
+    # Generate HTML
     output_html_path = os.path.join(start_dir, "index.html")
     generate_html(cluster_dict, output_html_path)
     print(f"HTML generated at: {output_html_path}")

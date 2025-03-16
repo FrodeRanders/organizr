@@ -1,10 +1,14 @@
 from os import walk, path
 from pypdf import PdfReader
 
-def extract_text_from_pdf(pdf_path):
-    name = path.basename(pdf_path)
-    print(f"Extracting text from {name}")
+def open_pdf(pdf_path):
+    try:
+        return PdfReader(open(pdf_path, "rb"))
+    except Exception as e:
+        print(f"*** [Warning] Could not open '{pdf_path}'. Error: {e}")
+        return None
 
+def extract_text_from_pdf(pdf_path):
     text = ""
     with open(pdf_path, "rb") as f:
         reader = PdfReader(f)
