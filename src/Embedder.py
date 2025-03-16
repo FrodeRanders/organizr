@@ -26,7 +26,7 @@ def get_embedding_cache_path(pdf_path: path) -> path:
     return path.join(EMBEDDINGS_CACHE_DIR, cache_filename)
 
 
-def embed_text(text: str) -> NDArray[np.float64]:
+def embed_text(text: str) -> NDArray[np.float32]:
     embedding = model.encode(text, convert_to_numpy=True)
     return embedding
 
