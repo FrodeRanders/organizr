@@ -1,17 +1,16 @@
 from sklearn.cluster import KMeans
 
 
-def cluster(embeddings, num_clusters):
+def cluster(embeddings, k):
     """
     Cluster embeddings using KMeans, which will try to partition data into 'k' clusters
     """
-    num_clusters = min(num_clusters, len(embeddings))
+    k = min(k, len(embeddings))
 
-    print(f"Clustering into {num_clusters} clusters...")
+    print(f"Clustering into {k} clusters...")
 
-    kmeans = KMeans(n_clusters=num_clusters)
-    clusters = kmeans.fit_predict(embeddings)
-    return clusters
+    kmeans = KMeans(n_clusters=k)
+    return kmeans.fit_predict(embeddings)
 
 
 # --- ALTERNATIVES ---
@@ -20,7 +19,7 @@ def cluster(embeddings, num_clusters):
 #     from sklearn.cluster import AgglomerativeClustering
 #
 #     clustering = AgglomerativeClustering(distance_threshold=0, n_clusters=None)
-#     clustering.fit(X)  # X is your array of embeddings
+#     clustering.fit(embeddings)
 #
 # --------------------
 #
@@ -28,7 +27,7 @@ def cluster(embeddings, num_clusters):
 #     from sklearn.cluster import DBSCAN
 #
 #     dbscan = DBSCAN(eps=0.5, min_samples=5)
-#     labels = dbscan.fit_predict(X)
+#     labels = dbscan.fit_predict(embeddings)
 #
 # Number of clusters is basically determined by how many data points
 # get grouped under each label vs. labeled as "noise" (-1).
