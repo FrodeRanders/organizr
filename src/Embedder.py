@@ -31,7 +31,7 @@ def embed_text(text: str) -> NDArray[np.float64]:
     return embedding
 
 
-def embed_text_with_cache(pdf_path: path, text: str) -> NDArray[np.float64]:
+def embed_text_with_cache(pdf_path: path, text: str) -> NDArray[np.float32]:
     """
     If the embedding for this PDF has been computed before, load from disk.
     Otherwise, compute the embedding and save it to cache.
@@ -40,6 +40,7 @@ def embed_text_with_cache(pdf_path: path, text: str) -> NDArray[np.float64]:
     name = path.basename(pdf_path)
 
     cache_path = get_embedding_cache_path(pdf_path)
+    embedding: NDArray[np.float32] = np.array([])
 
     if path.exists(cache_path):
         # Load the cached embedding
