@@ -1,8 +1,7 @@
 from os import path, makedirs
-from src.Extractor import open_pdf
 import numpy as np
 import hashlib
-
+from pypdf import PdfReader
 from sentence_transformers import SentenceTransformer
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
@@ -53,6 +52,21 @@ def embed_text_with_cache(pdf_path, text):
     return embedding
 
 
+class PdfReaderContext:
+    def __init__(self, pdf_path):
+        self.pdf_path = pdf_path
+        self._file_handle = None
+        self.reader = None
+
+    def __enter__(self):
+        self._file_handle = open(self.pdf_path, "rb")
+        self.reader = PdfReader(self._file_handle)
+        return self.reader
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self._file_handle.close()
+
+
 def extract_and_embed_with_cache(pdf_path):
     """
     If the embedding for this PDF has been computed before, load from disk.
@@ -71,7 +85,7 @@ def extract_and_embed_with_cache(pdf_path):
     else:
         print(f"Embedding: {path.basename(cache_path)} <- {name}")
 
-        with open_pdf(pdf_path) as reader:
+        with PdfReaderContext(pdf_path) as reader:
             if reader is not None:
                 page_embeddings = []
                 for page_num, page in enumerate(reader.pages):
