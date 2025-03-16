@@ -1,5 +1,6 @@
 from os import path, makedirs, chmod
 import numpy as np
+from numpy.typing import NDArray
 import hashlib
 from pypdf import PdfReader
 from sentence_transformers import SentenceTransformer
@@ -12,7 +13,7 @@ makedirs(EMBEDDINGS_CACHE_DIR, exist_ok=True)
 def SHA1(path: str) -> str:
     return hashlib.sha1(path.encode("utf-8")).hexdigest()
 
-def get_embedding_cache_path(pdf_path):
+def get_embedding_cache_path(pdf_path: path) -> path:
     """
     Compute a hash of the absolute file path (or the file contents)
     and create a filename in the EMBEDDINGS_CACHE_DIR.
@@ -25,12 +26,12 @@ def get_embedding_cache_path(pdf_path):
     return path.join(EMBEDDINGS_CACHE_DIR, cache_filename)
 
 
-def embed_text(text):
+def embed_text(text: str) -> NDArray[np.float64]:
     embedding = model.encode(text, convert_to_numpy=True)
     return embedding
 
 
-def embed_text_with_cache(pdf_path, text):
+def embed_text_with_cache(pdf_path: path, text: str) -> NDArray[np.float64]:
     """
     If the embedding for this PDF has been computed before, load from disk.
     Otherwise, compute the embedding and save it to cache.
@@ -67,7 +68,7 @@ class PdfReaderContext:
         self._file_handle.close()
 
 
-def extract_and_embed_with_cache(pdf_path):
+def extract_and_embed_with_cache(pdf_path: path) -> NDArray[np.float32]:
     """
     If the embedding for this PDF has been computed before, load from disk.
     Otherwise, compute the embedding and save it to cache.
@@ -75,7 +76,7 @@ def extract_and_embed_with_cache(pdf_path):
     """
     name = path.basename(pdf_path)
 
-    embedding = []
+    embedding: NDArray[np.float32] = np.array([])
 
     cache_path = get_embedding_cache_path(pdf_path)
     if path.isfile(cache_path):
@@ -85,14 +86,17 @@ def extract_and_embed_with_cache(pdf_path):
         print(f"Embedding: {path.basename(cache_path)} <- {name}")
         with PdfReaderContext(pdf_path) as reader:
             if reader is not None:
-                page_embeddings = []
-                for page_num, page in enumerate(reader.pages):
-                    page_text = page.extract_text()
-                    if page_text.strip():
-                        page_embeddings.append(model.encode(page_text, convert_to_numpy=True))
+                try:
+                    page_embeddings = np.array([])
+                    for page_num, page in enumerate(reader.pages):
+                        page_text = page.extract_text()
+                        if page_text.strip():
+                            emb = model.encode(page_text, convert_to_numpy=True)
+                            np.append(emb, page_embeddings)
 
-                embedding = np.mean(page_embeddings, axis=0)
-                np.save(cache_path, embedding)
-                chmod(cache_path, 0o444) # Protect cache, since this operation is costly
-
+                    embedding = np.mean(page_embeddings, axis=0)
+                    np.save(cache_path, embedding)
+                    chmod(cache_path, 0o444) # Protect cache, since this operation is costly
+                except Exception as e:
+                    print(f"*** [Warning] Error: {e}")
     return embedding

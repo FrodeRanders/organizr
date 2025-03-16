@@ -1,4 +1,5 @@
 import numpy as np
+from numpy.typing import NDArray
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.cluster import KMeans
 
@@ -15,7 +16,7 @@ def pick_representative_doc(centroid_vec, cluster_embeddings):
     return best_idx, similarities[best_idx]
 
 
-def cluster_with_representatives(embeddings, doc_filenames, k):
+def cluster_with_representatives(embeddings, doc_filenames, k: int):
     """
     Cluster embeddings using KMeans into 'k' clusters. Returns:
       - labels: an array of cluster IDs (same order as 'embeddings'),
@@ -24,11 +25,14 @@ def cluster_with_representatives(embeddings, doc_filenames, k):
     # If we request more clusters than documents, reduce k
     k = min(k, len(embeddings))
 
+    if k == 0:
+        print(f"Cannot cluster: k = {k}")
+        return
+
     # Fit K-Means
     kmeans = KMeans(n_clusters=k, n_init="auto")
     labels = kmeans.fit_predict(embeddings)
-    assert len(labels) == len(doc_filenames)
-
+    assert len(labels) == len(embeddings) == len(doc_filenames)
 
     # For each labeled cluster, pick a representative doc
     np_embeddings = np.array(embeddings)

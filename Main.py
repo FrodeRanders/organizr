@@ -1,7 +1,6 @@
 import argparse
 import os
 import sys
-import numpy as np
 
 from src.Extractor import find_pdfs_recursive
 from src.Embedder import extract_and_embed_with_cache
@@ -35,15 +34,17 @@ def main():
         sys.exit(0)
 
     #
+    embeddings= []
     paths = []
-    embeddings = []
 
     for pdf_path in pdfs:
         try:
             embedding = extract_and_embed_with_cache(pdf_path)
-            if embedding is not None:
-                paths.append(pdf_path)
+            if embedding.size > 1:
                 embeddings.append(embedding)
+                paths.append(pdf_path)
+            else:
+                print(f"Ignoring bogus embedding: {embedding}")
 
         except Exception as e:
             print(f"*** [Warning] Could not process '{pdf_path}'. Error: {e}")
