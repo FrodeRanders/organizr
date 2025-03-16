@@ -79,12 +79,10 @@ def extract_and_embed_with_cache(pdf_path):
 
     cache_path = get_embedding_cache_path(pdf_path)
     if path.isfile(cache_path):
-        # Load the cached embedding
         print(f"Loading cached embedding: {name}")
         embedding = np.load(cache_path)
     else:
         print(f"Embedding: {path.basename(cache_path)} <- {name}")
-
         with PdfReaderContext(pdf_path) as reader:
             if reader is not None:
                 page_embeddings = []

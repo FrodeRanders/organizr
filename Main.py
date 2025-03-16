@@ -1,13 +1,14 @@
 import argparse
 import os
 import sys
+import numpy as np
 
 from src.Extractor import find_pdfs_recursive
 from src.Embedder import extract_and_embed_with_cache
-from src.Clusterer import cluster
+from src.Clusterer import cluster_with_representatives
 from src.HTMLGenerator import generate_html
 
-
+K = 25
 
 def main():
     # Parse command-line arguments
@@ -40,27 +41,25 @@ def main():
     for pdf_path in pdfs:
         try:
             embedding = extract_and_embed_with_cache(pdf_path)
-
-            paths.append(pdf_path)
-            embeddings.append(embedding)
+            if embedding is not None:
+                paths.append(pdf_path)
+                embeddings.append(embedding)
 
         except Exception as e:
             print(f"*** [Warning] Could not process '{pdf_path}'. Error: {e}")
 
     # Clustering
-    clusters = cluster(embeddings, 25)
+    labels, representatives = cluster_with_representatives(embeddings, paths, K)
 
-    # Map cluster IDs to file lists
-    cluster_dict = {}
-    for idx, cluster_id in enumerate(clusters):
-        pdf_file = paths[idx]
-        if cluster_id not in cluster_dict:
-            cluster_dict[cluster_id] = []
-        cluster_dict[cluster_id].append(pdf_file)
+    topic_dict = {}
+    for idx, label_id in enumerate(labels):
+        if label_id not in topic_dict:
+            topic_dict[label_id] = []
+        topic_dict[label_id].append(paths[idx])
 
     # Generate HTML
     output_html_path = os.path.join(start_dir, "index.html")
-    generate_html(cluster_dict, output_html_path)
+    generate_html(topic_dict, representatives, output_html_path)
     print(f"HTML generated at: {output_html_path}")
 
 
