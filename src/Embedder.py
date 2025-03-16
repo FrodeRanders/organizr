@@ -1,4 +1,4 @@
-from os import path, makedirs
+from os import path, makedirs, chmod
 import numpy as np
 import hashlib
 from pypdf import PdfReader
@@ -93,5 +93,6 @@ def extract_and_embed_with_cache(pdf_path):
 
                 embedding = np.mean(page_embeddings, axis=0)
                 np.save(cache_path, embedding)
+                chmod(cache_path, 0o444) # Protect cache, since this operation is costly
 
     return embedding
