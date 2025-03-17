@@ -77,7 +77,7 @@ def extract_and_embed_with_cache(pdf_path: path) -> NDArray[np.float32]:
     """
     name = path.basename(pdf_path)
 
-    embedding: NDArray[np.float32] = np.array([])
+    embedding = []
 
     cache_path = get_embedding_cache_path(pdf_path)
     if path.isfile(cache_path):
@@ -88,16 +88,19 @@ def extract_and_embed_with_cache(pdf_path: path) -> NDArray[np.float32]:
         with PdfReaderContext(pdf_path) as reader:
             if reader is not None:
                 try:
-                    page_embeddings = np.array([])
+                    page_embeddings = []
                     for page_num, page in enumerate(reader.pages):
                         page_text = page.extract_text()
                         if page_text.strip():
                             emb = model.encode(page_text, convert_to_numpy=True)
-                            np.append(emb, page_embeddings)
+                            if emb.size > 1:
+                                page_embeddings.append(emb)
 
                     embedding = np.mean(page_embeddings, axis=0)
                     np.save(cache_path, embedding)
                     chmod(cache_path, 0o444) # Protect cache, since this operation is costly
+
                 except Exception as e:
                     print(f"*** [Warning] Error: {e}")
+
     return embedding

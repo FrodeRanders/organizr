@@ -34,7 +34,7 @@ def main():
         sys.exit(0)
 
     #
-    embeddings= []
+    embeddings = []
     paths = []
 
     for pdf_path in pdfs:
