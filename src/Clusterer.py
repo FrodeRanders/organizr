@@ -29,13 +29,14 @@ def cluster_with_representatives(embeddings, doc_filenames, k: int):
         print(f"Cannot cluster: k = {k}")
         return
 
+    np_embeddings = np.array(embeddings)
+
     # Fit K-Means
     kmeans = KMeans(n_clusters=k, n_init="auto")
-    labels = kmeans.fit_predict(embeddings)
+    labels = kmeans.fit_predict(np_embeddings)
     assert len(labels) == len(embeddings) == len(doc_filenames)
 
     # For each labeled cluster, pick a representative doc
-    np_embeddings = np.array(embeddings)
     representatives = []
     for cluster_id in range(k):
         # 'cluster_indices' is an array of integers, which are indices of the

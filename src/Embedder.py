@@ -3,12 +3,34 @@ import numpy as np
 from numpy.typing import NDArray
 import hashlib
 from pypdf import PdfReader
+from transformers import AutoTokenizer
 from sentence_transformers import SentenceTransformer
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
+tokenizer = AutoTokenizer.from_pretrained("sentence-transformers/all-MiniLM-L6-v2")
 
 EMBEDDINGS_CACHE_DIR = "./embedding-cache"
 makedirs(EMBEDDINGS_CACHE_DIR, exist_ok=True)
+
+def chunk_text(text, max_tokens=256):
+    words = text.split()  # use a tokenizer for better results
+    chunks = []
+    current_chunk = []
+    current_length = 0
+
+    for word in words:
+        token_count = len(tokenizer.tokenize(word))
+        if current_length + token_count > max_tokens:
+            chunks.append(" ".join(current_chunk))
+            current_chunk = []
+            current_length = 0
+        current_chunk.append(word)
+        current_length += token_count
+
+    if current_chunk:
+        chunks.append(" ".join(current_chunk))
+
+    return chunks
 
 def SHA1(path: str) -> str:
     return hashlib.sha1(path.encode("utf-8")).hexdigest()
@@ -92,9 +114,11 @@ def extract_and_embed_with_cache(pdf_path: path) -> NDArray[np.float32]:
                     for page_num, page in enumerate(reader.pages):
                         page_text = page.extract_text()
                         if page_text.strip():
-                            emb = model.encode(page_text, convert_to_numpy=True)
+                            chunks = chunk_text(page_text, max_tokens=256)
+                            emb = model.encode(chunks, convert_to_numpy=True)
+                            page_embedding = np.mean(emb, axis=0)
                             if emb.size > 1:
-                                page_embeddings.append(emb)
+                                page_embeddings.append(page_embedding)
 
                     embedding = np.mean(page_embeddings, axis=0)
                     np.save(cache_path, embedding)

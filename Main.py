@@ -40,7 +40,7 @@ def main():
     for pdf_path in pdfs:
         try:
             embedding = extract_and_embed_with_cache(pdf_path)
-            if embedding.size > 1:
+            if embedding is not None and embedding.size > 1:
                 embeddings.append(embedding)
                 paths.append(pdf_path)
             else:
