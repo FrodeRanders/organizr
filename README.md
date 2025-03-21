@@ -356,7 +356,7 @@ As you see, there is no particular sort order. Going through this list, I find i
 ### Cluster 7
 
 Representative for this cluster: 2014-02-10 d20.2.3_activity_ii_scientific_report.pdf
-
+```
 froran-thesis.pdf
 data-index.pdf
 Schoorman, Mayer, Davis (2007) An integrative model of organizational trust; past, present, and future.pdf
@@ -379,11 +379,11 @@ D20.1.a Activity II Scientific Report.pdf
 2013-02-01 D20.1.b Activity II Scientific Report.pdf
 2014-01-28_D20_GUI_Survey_Jan28_CSISP.pdf
 2014-01-28_D20_GUI_Survey_Jan28_JRC.pdf
-
+```
 ### Cluster 3
 
 Representative for this cluster: Cost for Long-Term Digital Preservation - 9 Months Review.pdf
-
+```
 Cost for Long-Term Digital Preservation - 9 Months Review.pdf
 Cost_Claim_overview_ENSURE_2013-04-10.pdf
 2011-01-11 cranfield_university.pdf
@@ -393,11 +393,11 @@ Cost_Claim_overview_ENSURE_2013-04-10.pdf
 2012-03-14 alhawas.pdf
 2012-03-14 poster.pdf
 2011-01-11 feup-chituc-presentation-for_ensure-7dec2009.pdf
-
+```
 ### Cluster 14
 
 Representative for this cluster: (2011) Preserving digital materials.pdf
-
+```
 review.pdf
 14 Strodl (2010) - (Semi-)Automated digital preservation archives for small institutions and private users.pdf
 17 Burda, Teuteberg (2013) - Investigating the Needs, Capabilities and Decision Making Mechanisms in Digital Preservation; Insights from a Multiple Case Study.pdf
@@ -418,11 +418,11 @@ Scholar Alert digital preservation quality fitness purpose .pdf
 2011-03-23 scarp_b4832_atmospheric.pdf
 2011-03-23 preservationanalysis_ieee2009.pdf
 2012-06-03 ipress2011_evolving_domains_problems_and_solutions_for_ltdp_.pdf
-
+```
 ### Cluster 18
 
 Representative for this cluster: 19 Rosado, Gomez, Mellado, Fernandez-Medina (2012) - Security Analysis in the Migration to Cloud Environments.pdf
-
+```
 20 Strauch, Andrikopoulos, Bachmann, Leymann (2013) - Migrating Application Data to the Cloud using Cloud Data Patterns.pdf
 15 Fehling, Leymann, Ruehl, Rudek, Verclas (2013) - Service Migration Patterns - Decision Support and Best Practices for the Migration of Existing Service-Based Applications to Cloud Environments.pdf
 03 Khajeh-Hosseini, SOmmerville, Bogaerts, Teregowda (2011) - Decision Support Tools for Cloud Migration in the Enterprise.pdf
@@ -431,11 +431,11 @@ Representative for this cluster: 19 Rosado, Gomez, Mellado, Fernandez-Medina (20
 26 Liu, Rijnboutt, Routsis et al (2013) - What challenges have to be faced when using the cloud for e-health services.pdf
 23 Müller, Han, Scheider, Versteeg (2011) - Tackling the Loss of Control; Standards-Based Conjoint Management of Security Requirements for Cloud Services.pdf
 12 Strauch, Andrikopoulos, Bachmann, Karastoyanova, Passow, Vukojevic-Haupt (2013) - Decision Support for the Migration of the Application Database Layer to the Cloud.pdf
-
+```
 ### Cluster 21
 
 Representative for this cluster: 08 Menzel, Ranjan (2011) - CloudGenius; Automated Decision Support for Migrating Multi-Component Enterprise Applications to Clouds.pdf
-
+```
 25 Rings, Caryer, Gallop, Grabowski, Kovacikova, Schulz, Stokes-Rees (2009) - Grid and Cloud Computing; Opportunities for Integration with the Next Generation Network.pdf
 05 Wittern, Kuhlenkamp, Menzel (2012) - Cloud Service Selection Based on Variability Modeling.pdf
 08 Menzel, Ranjan (2011) - CloudGenius; Automated Decision Support for Migrating Multi-Component Enterprise Applications to Clouds.pdf
@@ -447,22 +447,22 @@ Representative for this cluster: 08 Menzel, Ranjan (2011) - CloudGenius; Automat
 22 Khediri, Zaghdoud (2015) - Survey of Uncertainty Handling in Cloud Service Discovery and Composition.pdf
 01 Menzel, Ranjan (2012) - CloudGenius; decision support for web server cloud migration.pdf
 06 Andrikopoulos, Strauch, Leymann (2013) - Decision Support for Application Migration to the Cloud - Challenges and Vision.pdf
-
+```
 ### Cluster 6
 
 Representative for this cluster: 04 Zhang (2012) - Investigating decision support techniques for automating Cloud service selection.pdf
-
+```
 11 Martens, Walterbusch, Teuteberg (2012) - Costing of Cloud Computing Services; A Total Cost of Ownership Approach.pdf
 04 Zhang (2012) - Investigating decision support techniques for automating Cloud service selection.pdf
 10 Toosi, Calheiros, Buyya (2014) - Interconnected Cloud Computing Environments; Challenges, Taxonomy, and Survey.pdf
 09 Sakr, Liu, Batista, Alomari (2011) - A Survey of Large Scale Data Management Approaches in Cloud Environments.pdf
 nn AJeh, Ellman, Keogh (2014) - A Cost Modelling System for Cloud Computing.pdf
 14 Barker, Varghese, Thai (2015) - Cloud Services Brokerage; A Survey and Research Roadmap.pdf
-
+```
 ### Cluster 20
 
 Representative for this cluster: 2013-02-27 d0.1.1a_periodic_progress_man.pdf
-
+```
 18 Hartung, Anokwa, Brunette, Lerer, Tseng, Borriello (2011) - Open Data Kit; Tools to Build Information Services for Developing Regions.pdf
 07 Pearson, Benameur (2010) - Privacy, Security and Trust Issues Arising from Cloud Computing.pdf
 2012-09-11 On selection of purposes.pdf
@@ -502,11 +502,11 @@ final_review_report_1.pdf
 2012-10-17 eChallenges Programme.pdf
 2012-02-08 d0.1.1a_periodic_progress_man.pdf
 2012-03-05 a5_scenarios_main.pdf
-
+```
 ### Cluster 8
 
 Representative for this cluster: 01 Ferreira, Baptista, Ramalho (2007) - An intelligent decision support system for digital preservation.pdf
-
+```
 21 Kulmukhametov, Becker (2014) - Content Profiling for Preservation; Improving Scale, Depth and Quality.pdf
 03 Becker, Rauber, Heydegger, Schnasse, Thaller (2008) - A Generic XML Language for Characterising Objects to Support Digital Preservation.pdf
 12 Lindley, Jackson, Aitken (2010) - A Collaborative Research Environment for Digital Preservation - The Planets Testbed.pdf
@@ -525,11 +525,11 @@ Representative for this cluster: 01 Ferreira, Baptista, Ramalho (2007) - An inte
 Automation of information quality evaluation in ehealth records from a preservation perspective (2012).pdf
 2011-03-23 pv09_conway_pnm.pdf
 2012-10-10 automation_of_information_quality_evaluation_in_ehealth_records_from_a_preservation_perspective.pdf
-
+```
 ### Cluster 9
 
 Representative for this cluster: 2011-11-06 d11.1_ensure_high_level_architecture_document_main.pdf
-
+```
 19 Schmidt, King, Jackson, Wilson, Steeg, Melms (2010) - A Framework for Distributed Preservation Workflows.pdf
 31 Abichandani, Prakash, Barwal, Murthy (2015) - Tool for Metadata Extraction and Content Packaging as Endorsed in OAIS Framework.pdf
 27 Liu, Futrelle, Myers, Ridriguez, Kooper (2010) - A provenance-aware virtual sensor system using the Open Provenance Model.pdf
@@ -554,30 +554,30 @@ D11.1 ENSURE High Level Architecture Document_main.pdf
 2012-02-08 D30.2.1 A3 Scientific Report.pdf
 2012-02-01 d40.1_a4_scientific_report_m12.pdf
 2011-11-05 d11.1_ensure_high_level_architecture_document_main.pdf
-
+```
 ### Cluster 10
 
 Representative for this cluster: Rousseau, Sitkin, Burt, Camerer (1998) Not so different after all; A cross-discipline view of trust.pdf
-
+```
 Rousseau, Sitkin, Burt, Camerer (1998) Not so different after all; A cross-discipline view of trust.pdf
-
+```
 ### Cluster 0
 
 Representative for this cluster: 2012-05-10 Describing the quality model.pdf
-
+```
 2012-05-10 Describing the quality model.pdf
-
+```
 ### Cluster 19
 
 Representative for this cluster: 2012-01-12 Sketches around a preservation plan model.pdf.pdf
-
+```
 2012-01-12 Sketches around a preservation plan model.pdf.pdf
 2011-04-27 pp_concepts_pa3.pdf
-
+```
 ### Cluster 1
 
 Representative for this cluster: 2011-06-13 d-req_up_13june2011-v6.pdf
-
+```
 2011-05-29 Requirements deliverable v4.pdf
 D1.2.1 Requirements M4.PDF
 D12.1c ENSURE RequiremnetsM24 Document_main.pdf
@@ -603,11 +603,11 @@ D1.2.1 Requirements M4.PDF
 2011-06-15 requirements_d1.2.1a.pdf
 2012-01-31 d12.1b_ensure_requirements12_document_main.pdf
 2012-12-13_TR_Interview_Report_version03.pdf
-
+```
 ### Cluster 4
 
 Representative for this cluster: 2014-03-17 runtime-user-guide.pdf
-
+```
 2011-09-20 Brussels F2F Meeting minutes.pdf
 2012-05-30 option1-f.pdf
 2013-02-04 y2_agenda.pdf
@@ -623,11 +623,11 @@ Representative for this cluster: 2014-03-17 runtime-user-guide.pdf
 2012-07-06 google_analitics_reporting.pdf
 2011-05-18 perspectives_march-apri-lmay2011_cranfield_leading_the_way_in_costing_of_long_term_digital_data_storage.pdf
 2012-03-12 Brüssel.pdf
-
+```
 ### Cluster 5
 
 Representative for this cluster: 2013-02-10 d62.2.c_m24_main.pdf
-
+```
 D70.2.4 Dissemination Report.pdf
 D70.3.2_training_main.pdf
 D70.2.1 Dissemination.PDF
@@ -652,19 +652,19 @@ D70.2.1 Dissemination.PDF
 2013-02-10 d61.2_m24_main.pdf
 2012-02-02 d60.1_m12_main.pdf
 2011-08-21 d62.2a_dissemination_m6_submitted.pdf
-
+```
 ### Cluster 2
 
 Representative for this cluster: D30.1.1_A3_prototype_demo_main.pdf
-
+```
 D30.1.1_A3_prototype_demo_main.pdf
 2013-08-12 d30.1.2_a3_prototype_demo_main.pdf
 2013-08-12 d30.1.1_a3_prototype_demo_main.pdf
-
+```
 ### Cluster 24
 
 Representative for this cluster: D20.1.1_A2_prototype_demo_main.pdf
-
+```
 D20.1.1_A2_prototype_demo_main.pdf
 2013-08-12 d40.1.1_a4_prototype_demo_main.pdf
 2014-05-14 d50.4.2_a5_prototype_demo_main.pdf
@@ -672,21 +672,21 @@ D20.1.1_A2_prototype_demo_main.pdf
 2013-08-12 d20.1.1_a2_prototype_demo_main.pdf
 2014-05-14 d20.1.3_a2_prototype_demo_main.pdf
 2013-08-12 d40.1.2_a4_prototype_demo_main.pdf
-
+```
 ### Cluster 11
 
 Representative for this cluster: 2012-03-02 mie2012_ensure_paper_fraunhofer_ibmt.pdf
-
+```
 2011-02-23 ensure-wp31-architecture-draft.pdf
 2012-09-13 echallenges_full_paper_fraunhofer_v3.pdf
 2012-03-02 echallenges_2012_ensure_abstract_fraunhofer_v1.pdf
 2012-03-02 mie2012_ensure_paper_fraunhofer_ibmt.pdf
 2012-04-05 mie2012_ensure_paper_fraunhofer_ibmt_final_manuscript.pdf
-
+```
 ### Cluster 13
 
 Representative for this cluster: 2011-03-23 ensure-wp31-architecture-draft01.pdf
-
+```
 2011-03-29 ensure-wp31-architecture-draft02.pdf
 2011-06-10 ensure-wp31_v.2.pdf
 2011-08-08 ensure-wp31_v.4.pdf
@@ -694,51 +694,52 @@ Representative for this cluster: 2011-03-23 ensure-wp31-architecture-draft01.pdf
 2011-03-23 ensure-wp31-architecture-draft01.pdf
 2011-03-23 ensure-wp31.pdf
 2011-04-01 ensure-wp31-architecture-draft03.pdf
-
+```
 ### Cluster 15
 
 Representative for this cluster: 2012-05-07 leaflet_ensure_back02.pdf
-
+```
 2012-05-07 leaflet_ensure_back02.pdf
 2012-05-07 leaflet_ensure_back03.pdf
 2011-05-08 ensure_poster.pdf
 2012-05-07 leaflet_ensure_back1.pdf
-
+```
 ### Cluster 23
 
 Representative for this cluster: 2011-08-12 press_release_fraunhofer_ibmt_ensure_2011_08_12_german.pdf
-
+```
 2011-11-24 news_item_feup_ensure_november2011.pdf
 2011-08-12 press_release_fraunhofer_ibmt_ensure_2011_08_12_german.pdf
 2011-12-22 2011_infoblatt_ensure_dt.pdf
 2011-12-13 pm_jrc_ensure_08_03_11.pdf
-
+```
 ### Cluster 17
 
 Representative for this cluster: 2011-08-11 maccabifood-119723_.pdf
-
+```
 2011-08-16 11388132.pdf
 2011-08-11 maccabifood-119723_.pdf
-
+```
 ### Cluster 22
 
 Representative for this cluster: 2012-05-07 leaflet_ensure_front1.pdf
-
+```
 2012-05-07 leaflet_ensure_front1.pdf
 2012-05-07 leaflet_ensure_front02.pdf
 2012-05-07 leaflet_ensure_front03.pdf
-
+```
 ### Cluster 12
 
 Representative for this cluster: 2012-03-14 ensure_manufacturing-debate_poster1.pdf
-
+```
 2012-03-06 1628_cost_modelling_leaflet.pdf
 2011-06-24 ensure_manufacturing-debate_poster.pdf
 2012-03-14 ensure_manufacturing-debate_poster1.pdf
-
+```
 ### Cluster 16
 
 Representative for this cluster: 2014-01-16 ensure_270000_am_no_1.pdf
-
+```
 2014-06-19 ensure_27000_amendment_no2_signed_by_the_ec_a.pdf
 2014-01-16 ensure_270000_am_no_1.pdf
+```
